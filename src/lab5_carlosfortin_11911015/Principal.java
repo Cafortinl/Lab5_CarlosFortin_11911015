@@ -16,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.pack();
     }
 
     /**
@@ -42,6 +43,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jb_color = new javax.swing.JButton();
         jb_agrregistro = new javax.swing.JButton();
+        jd_menu = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_mazos = new javax.swing.JTree();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_miembros = new javax.swing.JList<>();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -152,6 +167,70 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(89, 89, 89))
         );
 
+        jLabel13.setText("Tus mazos");
+
+        jScrollPane1.setViewportView(jt_mazos);
+
+        jLabel14.setText("Tu clan");
+
+        jl_miembros.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jl_miembros);
+
+        jMenu1.setText("Mazos");
+
+        jMenuItem1.setText("Agregar cartas");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Modificar");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Clan");
+
+        jMenuItem3.setText("Crear clan");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Unirse a un clan");
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
+
+        jd_menu.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout jd_menuLayout = new javax.swing.GroupLayout(jd_menu.getContentPane());
+        jd_menu.getContentPane().setLayout(jd_menuLayout);
+        jd_menuLayout.setHorizontalGroup(
+            jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_menuLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 419, Short.MAX_VALUE)
+                .addGroup(jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
+        );
+        jd_menuLayout.setVerticalGroup(
+            jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_menuLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(285, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
 
@@ -243,7 +322,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registroMouseClicked
         jd_registro.setVisible(true);
         jd_registro.pack();
-        jd_registro.setModal(true);
+        //jd_registro.setModal(true);
     }//GEN-LAST:event_jb_registroMouseClicked
 
     private void jb_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_colorMouseClicked
@@ -258,6 +337,9 @@ public class Principal extends javax.swing.JFrame {
         pf_agrpassword.setText("");
         dc_nacimiento.setDate(null);
         jb_color.setBackground(Color.blue);
+        JOptionPane.showMessageDialog(jd_registro, "Usuario registrado correctamente");
+        jd_registro.dispose();
+        //this.setVisible(true);
         
     }//GEN-LAST:event_jb_agrregistroMouseClicked
 
@@ -269,8 +351,14 @@ public class Principal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Se ha ingresado correctamente");
                     break;
                 }
+                else
+                    JOptionPane.showMessageDialog(this, "El usuario o la password es incorrecta");
             }
         }
+        tf_usuario.setText("");
+        pf_password.setText("");
+        jd_menu.setVisible(true);
+        jd_menu.pack();
     }//GEN-LAST:event_jb_ingresarMouseClicked
 
     /**
@@ -314,6 +402,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -322,11 +412,23 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jb_agrregistro;
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_registro;
+    private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_registro;
+    private javax.swing.JList<String> jl_miembros;
+    private javax.swing.JTree jt_mazos;
     private javax.swing.JPasswordField pf_agrpassword;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_agrapellido;

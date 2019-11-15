@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Mazo {
     
     private ArrayList<Carta> cartas=new ArrayList();
-    private int coste=cartas.get(0).getCoste()+cartas.get(1).getCoste()+cartas.get(2).getCoste();
+    private int coste=(cartas.get(0).getCoste()+cartas.get(1).getCoste()+cartas.get(2).getCoste())/3;
 
     public Mazo() {
     }
