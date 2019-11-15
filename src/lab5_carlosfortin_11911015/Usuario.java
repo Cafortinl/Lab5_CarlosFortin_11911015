@@ -43,6 +43,9 @@ public class Usuario {
         this.fecha_nacimiento = fecha_nacimiento;
         this.color_favorito = color_favorito;
         this.edad=(int) ((((new Date()).getTime()-(this.fecha_nacimiento).getTime())/((1000*60*60*24)))/365);
+        this.mazo1 = new Mazo();
+        this.mazo2 = new Mazo();
+        this.mazo3 = new Mazo();
     }
     
     

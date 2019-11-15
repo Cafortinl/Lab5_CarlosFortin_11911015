@@ -2,6 +2,7 @@ package lab5_carlosfortin_11911015;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 
@@ -17,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.pack();
+        usuarios.add(new Usuario("Carlos", "Fortin", "SkyCafl", "1234", new Date(), Color.blue));
     }
 
     /**
@@ -57,7 +59,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jDialog1 = new javax.swing.JDialog();
+        jd_agregarcartas = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         cb_mazo = new javax.swing.JComboBox<>();
@@ -196,6 +198,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.setText("Mazos");
 
         jMenuItem1.setText("Agregar cartas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Modificar");
@@ -268,70 +275,70 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jd_agregarcartasLayout = new javax.swing.GroupLayout(jd_agregarcartas.getContentPane());
+        jd_agregarcartas.getContentPane().setLayout(jd_agregarcartasLayout);
+        jd_agregarcartasLayout.setHorizontalGroup(
+            jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
+                .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
                                 .addComponent(tf_nombrecarta))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(18, 18, 18)
                                 .addComponent(cb_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addGap(18, 18, 18)
                                 .addComponent(tf_ptsvida))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tf_ptsdaño))
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(18, 18, 18)
                                 .addComponent(cb_tipocarta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                         .addGap(324, 324, 324)
                         .addComponent(jLabel15)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jb_agrmazo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jd_agregarcartasLayout.setVerticalGroup(
+            jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel15)
                 .addGap(40, 40, 40)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(cb_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(tf_nombrecarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
                             .addComponent(tf_ptsvida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(tf_ptsdaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(jd_agregarcartasLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jb_agrmazo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_agregarcartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
                     .addComponent(cb_tipocarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(118, Short.MAX_VALUE))
@@ -473,31 +480,40 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_ingresarMouseClicked
 
     private void jb_agrmazoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agrmazoMouseClicked
+        System.out.println(actual);
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 1")){
             if(actual.getMazo1().getCartas().size()<3){
                 if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka"))
                     actual.getMazo1().setCarta(new Minipekka());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Montapuerco"))
                     actual.getMazo1().setCarta(new Montapuerco());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Leñador"))
                     actual.getMazo1().setCarta(new Leñador());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Golem"))
                     actual.getMazo1().setCarta(new Golem());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Gigante"))
                     actual.getMazo1().setCarta(new Gigante());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Duendes"))
                     actual.getMazo1().setCarta(new Duendes());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Dragon Infernal"))
                     actual.getMazo1().setCarta(new Dragon_Infernal());
+                
                 if(cb_tipocarta.getSelectedItem().toString().equals("Dragon"))
-                    actual.getMazo1().setCarta(new Dragon());    
+                    actual.getMazo1().setCarta(new Dragon());   
+                
                     
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
-                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+                JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
         }
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 2")){
             if(actual.getMazo2().getCartas().size()<3){
@@ -523,7 +539,7 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
-                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+                JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
         }
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 3")){
             if(actual.getMazo3().getCartas().size()<3){
@@ -549,9 +565,22 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
-                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+                JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
         }
+        System.out.println(actual.getMazo1().getCartas());
+        
+        tf_nombrecarta.setText("");
+        tf_ptsvida.setText("");
+        tf_ptsdaño.setText("");
+        cb_mazo.setSelectedIndex(0);
+        cb_tipocarta.setSelectedIndex(0);
     }//GEN-LAST:event_jb_agrmazoMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jd_agregarcartas.setVisible(true);
+        jd_agregarcartas.pack();
+        jd_agregarcartas.setModal(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -592,7 +621,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_mazo;
     private javax.swing.JComboBox<String> cb_tipocarta;
     private com.toedter.calendar.JDateChooser dc_nacimiento;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -627,6 +655,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_registro;
+    private javax.swing.JDialog jd_agregarcartas;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_registro;
     private javax.swing.JList<String> jl_miembros;

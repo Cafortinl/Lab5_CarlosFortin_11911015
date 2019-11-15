@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Mazo {
     
     private ArrayList<Carta> cartas=new ArrayList();
-    private int coste=(cartas.get(0).getCoste()+cartas.get(1).getCoste()+cartas.get(2).getCoste())/3;
+    //private int coste=(cartas.get(0).getCoste()+cartas.get(1).getCoste()+cartas.get(2).getCoste())/3;
 
     public Mazo() {
     }
@@ -32,13 +32,13 @@ public class Mazo {
         this.cartas = cartas;
     }
 
-    public int getCoste() {
+    /*public int getCoste() {
         return coste;
     }
 
     public void setCoste(int coste) {
         this.coste = coste;
-    }
+    }*/
     
     public Carta getCarta(int pos){
         return this.cartas.get(pos);
@@ -48,6 +48,7 @@ public class Mazo {
         this.cartas.add(carta);
     }
     
+    @Override
     public String toString(){
         String salida="";
         for (Carta c : cartas) {
