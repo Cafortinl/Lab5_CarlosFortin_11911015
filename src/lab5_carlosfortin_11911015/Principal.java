@@ -57,6 +57,19 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jDialog1 = new javax.swing.JDialog();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        cb_mazo = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        cb_tipocarta = new javax.swing.JComboBox<>();
+        tf_nombrecarta = new javax.swing.JTextField();
+        jt_ptsvida = new javax.swing.JTextField();
+        tf_ptsdaño = new javax.swing.JTextField();
+        jb_agrmazo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -231,6 +244,99 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(285, Short.MAX_VALUE))
         );
 
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel15.setText("Agregar Cartas");
+
+        jLabel16.setText("Seleccione un mazo");
+
+        cb_mazo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mazo 1", "Mazo 2", "Mazo 3" }));
+
+        jLabel17.setText("Nombre");
+
+        jLabel18.setText("Puntos de vida");
+
+        jLabel19.setText("Puntos de daño");
+
+        jLabel20.setText("Tipo de Carta");
+
+        cb_tipocarta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minipekka", "Montapuerco", "Leñador", "Golem", "Gigante", "Duendes", "Dragon Infernal", "Dragon" }));
+
+        jb_agrmazo.setText("Agregar");
+        jb_agrmazo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agrmazoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_nombrecarta))
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(jt_ptsvida))
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_ptsdaño))
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_tipocarta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(jLabel15)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_agrmazo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel15)
+                .addGap(40, 40, 40)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(cb_mazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_nombrecarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jt_ptsvida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(tf_ptsdaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jb_agrmazo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(cb_tipocarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(118, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
 
@@ -344,22 +450,54 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_agrregistroMouseClicked
 
     private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
-        for (Usuario u : usuarios) {
-            if(u.getNombre_usuario().endsWith(tf_usuario.getText())){
-                if(u.getNombre_usuario().equals(tf_usuario.getText()) && u.getPassword().equals(pf_password.getText())){
-                    actual=u;
-                    JOptionPane.showMessageDialog(this, "Se ha ingresado correctamente");
-                    break;
+        if(tf_usuario.getText()!=null && pf_password.getText()!=null){
+            for (Usuario u : usuarios) {
+                if(u.getNombre_usuario().equals(tf_usuario.getText())){
+                    if(u.getNombre_usuario().equals(tf_usuario.getText()) && u.getPassword().equals(pf_password.getText())){
+                        actual=u;
+                        JOptionPane.showMessageDialog(this, "Se ha ingresado correctamente");
+                        System.out.println(actual.getEdad());
+                        jd_menu.setVisible(true);
+                        jd_menu.pack();
+                        break;
+                    }
                 }
-                else
-                    JOptionPane.showMessageDialog(this, "El usuario o la password es incorrecta");
             }
+            tf_usuario.setText("");
+            pf_password.setText("");
+            if(actual==null)
+                JOptionPane.showMessageDialog(this, "El usuario o la password es incorrecta");
         }
-        tf_usuario.setText("");
-        pf_password.setText("");
-        jd_menu.setVisible(true);
-        jd_menu.pack();
+        else
+            JOptionPane.showMessageDialog(this, "Debe ingresar sesion");
     }//GEN-LAST:event_jb_ingresarMouseClicked
+
+    private void jb_agrmazoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agrmazoMouseClicked
+        if(cb_mazo.getSelectedItem().toString().equals("Mazo 1")){
+            if(actual.getMazo1().getCartas().size()<3){
+                if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka")){
+                    actual.getMazo1().setCarta(new Minipekka());
+                    actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
+                }
+            }
+            else
+                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+        }
+        if(cb_mazo.getSelectedItem().toString().equals("Mazo 2")){
+            if(actual.getMazo2().getCartas().size()<3){
+                
+            }
+            else
+                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+        }
+        if(cb_mazo.getSelectedItem().toString().equals("Mazo 3")){
+            if(actual.getMazo3().getCartas().size()<3){
+                
+            }
+            else
+                JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
+        }
+    }//GEN-LAST:event_jb_agrmazoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -397,14 +535,23 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_mazo;
+    private javax.swing.JComboBox<String> cb_tipocarta;
     private com.toedter.calendar.JDateChooser dc_nacimiento;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -421,6 +568,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jb_agrmazo;
     private javax.swing.JButton jb_agrregistro;
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_ingresar;
@@ -429,11 +577,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registro;
     private javax.swing.JList<String> jl_miembros;
     private javax.swing.JTree jt_mazos;
+    private javax.swing.JTextField jt_ptsvida;
     private javax.swing.JPasswordField pf_agrpassword;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_agrapellido;
     private javax.swing.JTextField tf_agrnombre;
     private javax.swing.JTextField tf_agrusuario;
+    private javax.swing.JTextField tf_nombrecarta;
+    private javax.swing.JTextField tf_ptsdaño;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> usuarios=new ArrayList();

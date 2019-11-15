@@ -42,6 +42,7 @@ public class Usuario {
         this.password = password;
         this.fecha_nacimiento = fecha_nacimiento;
         this.color_favorito = color_favorito;
+        this.edad=(int) ((((new Date()).getTime()-(this.fecha_nacimiento).getTime())/((1000*60*60*24)))/365);
     }
     
     
