@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         cb_tipocarta = new javax.swing.JComboBox<>();
         tf_nombrecarta = new javax.swing.JTextField();
-        jt_ptsvida = new javax.swing.JTextField();
+        tf_ptsvida = new javax.swing.JTextField();
         tf_ptsdaño = new javax.swing.JTextField();
         jb_agrmazo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -288,7 +288,7 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jDialog1Layout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addGap(18, 18, 18)
-                                .addComponent(jt_ptsvida))
+                                .addComponent(tf_ptsvida))
                             .addGroup(jDialog1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -322,7 +322,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(jt_ptsvida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_ptsvida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
@@ -475,24 +475,78 @@ public class Principal extends javax.swing.JFrame {
     private void jb_agrmazoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agrmazoMouseClicked
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 1")){
             if(actual.getMazo1().getCartas().size()<3){
-                if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka")){
+                if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka"))
                     actual.getMazo1().setCarta(new Minipekka());
-                    actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
-                }
+                if(cb_tipocarta.getSelectedItem().toString().equals("Montapuerco"))
+                    actual.getMazo1().setCarta(new Montapuerco());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Leñador"))
+                    actual.getMazo1().setCarta(new Leñador());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Golem"))
+                    actual.getMazo1().setCarta(new Golem());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Gigante"))
+                    actual.getMazo1().setCarta(new Gigante());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Duendes"))
+                    actual.getMazo1().setCarta(new Duendes());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon Infernal"))
+                    actual.getMazo1().setCarta(new Dragon_Infernal());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon"))
+                    actual.getMazo1().setCarta(new Dragon());    
+                    
+                actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
+                actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
+                actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
                 JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
         }
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 2")){
             if(actual.getMazo2().getCartas().size()<3){
-                
+                if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka"))
+                    actual.getMazo2().setCarta(new Minipekka());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Montapuerco"))
+                    actual.getMazo2().setCarta(new Montapuerco());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Leñador"))
+                    actual.getMazo2().setCarta(new Leñador());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Golem"))
+                    actual.getMazo2().setCarta(new Golem());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Gigante"))
+                    actual.getMazo2().setCarta(new Gigante());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Duendes"))
+                    actual.getMazo2().setCarta(new Duendes());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon Infernal"))
+                    actual.getMazo2().setCarta(new Dragon_Infernal());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon"))
+                    actual.getMazo2().setCarta(new Dragon());    
+                    
+                actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
+                actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
+                actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
                 JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
         }
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 3")){
             if(actual.getMazo3().getCartas().size()<3){
-                
+                if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka"))
+                    actual.getMazo3().setCarta(new Minipekka());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Montapuerco"))
+                    actual.getMazo3().setCarta(new Montapuerco());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Leñador"))
+                    actual.getMazo3().setCarta(new Leñador());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Golem"))
+                    actual.getMazo3().setCarta(new Golem());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Gigante"))
+                    actual.getMazo3().setCarta(new Gigante());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Duendes"))
+                    actual.getMazo3().setCarta(new Duendes());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon Infernal"))
+                    actual.getMazo3().setCarta(new Dragon_Infernal());
+                if(cb_tipocarta.getSelectedItem().toString().equals("Dragon"))
+                    actual.getMazo3().setCarta(new Dragon());    
+                    
+                actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
+                actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
+                actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
             }
             else
                 JOptionPane.showMessageDialog(jDialog1, "El mazo no puede tener mas de 3 cartas");
@@ -577,7 +631,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registro;
     private javax.swing.JList<String> jl_miembros;
     private javax.swing.JTree jt_mazos;
-    private javax.swing.JTextField jt_ptsvida;
     private javax.swing.JPasswordField pf_agrpassword;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_agrapellido;
@@ -585,6 +638,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_agrusuario;
     private javax.swing.JTextField tf_nombrecarta;
     private javax.swing.JTextField tf_ptsdaño;
+    private javax.swing.JTextField tf_ptsvida;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> usuarios=new ArrayList();
