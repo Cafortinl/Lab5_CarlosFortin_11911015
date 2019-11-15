@@ -12,18 +12,29 @@ public class Carta {
     private String objetivo;
     private String velocidad;
     private int coste;
+    private String rango;
 
     public Carta() {
     }
 
-    public Carta(String nombre, int daño, int pts_vida, String objetivo, String velocidad, int coste) {
+    public Carta(String nombre, int daño, int pts_vida, String objetivo, String velocidad, int coste, String rango) {
         this.nombre = nombre;
         this.daño = daño;
         this.pts_vida = pts_vida;
         this.objetivo = objetivo;
         this.velocidad = velocidad;
         this.coste = coste;
+        this.rango = rango;
     }
+
+    public Carta(String objetivo, String velocidad, int coste, String rango) {
+        this.objetivo = objetivo;
+        this.velocidad = velocidad;
+        this.coste = coste;
+        this.rango = rango;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -72,6 +83,16 @@ public class Carta {
     public void setCoste(int coste) {
         this.coste = coste;
     }
+
+    public String getRango() {
+        return rango;
+    }
+
+    public void setRango(String rango) {
+        this.rango = rango;
+    }
+    
+    
     
     @Override
     public String toString(){
