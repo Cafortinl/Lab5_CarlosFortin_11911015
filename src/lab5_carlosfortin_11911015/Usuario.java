@@ -23,18 +23,28 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String nombre_usuario, String password, Date fecha_nacimiento, int edad, Color color_favorito, Mazo mazo1, Mazo mazo2, Mazo mazo3) {
+    public Usuario(String nombre, String apellido, String nombre_usuario, String password, Date fecha_nacimiento, Color color_favorito, Mazo mazo1, Mazo mazo2, Mazo mazo3) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nombre_usuario = nombre_usuario;
         this.password = password;
         this.fecha_nacimiento = fecha_nacimiento;
-        this.edad = edad;
         this.color_favorito = color_favorito;
         this.mazo1 = mazo1;
         this.mazo2 = mazo2;
         this.mazo3 = mazo3;
     }
+
+    public Usuario(String nombre, String apellido, String nombre_usuario, String password, Date fecha_nacimiento, Color color_favorito) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.nombre_usuario = nombre_usuario;
+        this.password = password;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.color_favorito = color_favorito;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
