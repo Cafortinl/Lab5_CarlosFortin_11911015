@@ -55,6 +55,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jl_miembros = new javax.swing.JList<>();
+        jb_logout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -87,6 +88,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jl_clanes = new javax.swing.JList<>();
         jb_unirse = new javax.swing.JButton();
+        popup_info = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -207,12 +209,24 @@ public class Principal extends javax.swing.JFrame {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 3");
         treeNode1.add(treeNode2);
         jt_mazos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_mazos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_mazosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jt_mazos);
 
         jLabel14.setText("Tu clan");
 
         jl_miembros.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jl_miembros);
+
+        jb_logout.setText("Logout");
+        jb_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_logoutMouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Mazos");
 
@@ -270,6 +284,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
+            .addGroup(jd_menuLayout.createSequentialGroup()
+                .addGap(526, 526, 526)
+                .addComponent(jb_logout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_menuLayout.setVerticalGroup(
             jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +300,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2))
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addGap(120, 120, 120)
+                .addComponent(jb_logout)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -817,6 +837,21 @@ public class Principal extends javax.swing.JFrame {
         actual.setClan(null);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jt_mazosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mazosMouseClicked
+        if(evt.isMetaDown()){
+            
+        }
+    }//GEN-LAST:event_jt_mazosMouseClicked
+
+    private void jb_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_logoutMouseClicked
+        jd_agregarcartas.dispose();
+        jd_crearclan.dispose();
+        jd_menu.dispose();
+        jd_registro.dispose();
+        jd_unirclan.dispose();
+        actual=null;
+    }//GEN-LAST:event_jb_logoutMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -896,6 +931,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_ingresar;
+    private javax.swing.JButton jb_logout;
     private javax.swing.JButton jb_registro;
     private javax.swing.JButton jb_unirse;
     private javax.swing.JDialog jd_agregarcartas;
@@ -908,6 +944,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTree jt_mazos;
     private javax.swing.JPasswordField pf_agrpassword;
     private javax.swing.JPasswordField pf_password;
+    private javax.swing.JPopupMenu popup_info;
     private javax.swing.JTextField tf_agrapellido;
     private javax.swing.JTextField tf_agrnombre;
     private javax.swing.JTextField tf_agrusuario;

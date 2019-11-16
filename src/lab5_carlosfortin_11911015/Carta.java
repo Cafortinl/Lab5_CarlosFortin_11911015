@@ -96,7 +96,7 @@ public class Carta {
     
     @Override
     public String toString(){
-        return nombre;
+        return nombre+": "+rango;
     }
     
 }

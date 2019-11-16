@@ -7,7 +7,6 @@ package lab5_carlosfortin_11911015;
 public class Minipekka extends Carta{
 
     public Minipekka() {
-        super();
     }
 
     public Minipekka(String objetivo, String velocidad, int coste, String rango) {
