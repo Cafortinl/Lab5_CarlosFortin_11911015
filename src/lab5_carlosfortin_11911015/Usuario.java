@@ -19,6 +19,7 @@ public class Usuario {
     private Mazo mazo1;
     private Mazo mazo2;
     private Mazo mazo3;
+    private Clan clan;
 
     public Usuario() {
     }
@@ -129,6 +130,16 @@ public class Usuario {
     public void setMazo3(Mazo mazo3) {
         this.mazo3 = mazo3;
     }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
+    }
+    
+    
     
     @Override
     public String toString(){

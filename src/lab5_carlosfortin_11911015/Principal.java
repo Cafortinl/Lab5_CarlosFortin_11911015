@@ -3,6 +3,7 @@ package lab5_carlosfortin_11911015;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -60,6 +61,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jd_agregarcartas = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -80,6 +82,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         cb_rango = new javax.swing.JComboBox<>();
         jb_crear = new javax.swing.JButton();
+        jd_unirclan = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_clanes = new javax.swing.JList<>();
+        jb_unirse = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -229,7 +236,20 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Unirse a un clan");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
+
+        jMenuItem2.setText("Salir del clan actual");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
@@ -411,6 +431,50 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(85, 85, 85)
                 .addComponent(jb_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel24.setText("Unirse a un clan");
+
+        jl_clanes.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jl_clanes);
+
+        jb_unirse.setText("Unirse");
+        jb_unirse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_unirseMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_unirclanLayout = new javax.swing.GroupLayout(jd_unirclan.getContentPane());
+        jd_unirclan.getContentPane().setLayout(jd_unirclanLayout);
+        jd_unirclanLayout.setHorizontalGroup(
+            jd_unirclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_unirclanLayout.createSequentialGroup()
+                .addGroup(jd_unirclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_unirclanLayout.createSequentialGroup()
+                        .addGap(312, 312, 312)
+                        .addComponent(jLabel24))
+                    .addGroup(jd_unirclanLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(jb_unirse, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        jd_unirclanLayout.setVerticalGroup(
+            jd_unirclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_unirclanLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel24)
+                .addGroup(jd_unirclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_unirclanLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_unirclanLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jb_unirse, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -686,15 +750,51 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        if(actual.getClan()==null){
         jd_crearclan.setVisible(true);
         jd_crearclan.pack();
+        }
+        else
+            JOptionPane.showMessageDialog(jd_menu, "Para crear o unirse a un clan primero debes salir del actual");
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
-        clanes.add(new Clan(tf_nombreclan.getText(), new Date(), actual,cb_rango.getSelectedItem().toString()));
-        tf_nombreclan.setText("");
-        cb_rango.setSelectedIndex(0);
+        if(actual.getClan()==null){
+            clanes.add(new Clan(tf_nombreclan.getText(), new Date(), actual,cb_rango.getSelectedItem().toString()));
+            actual.setClan(clanes.get(clanes.size()-1));
+            tf_nombreclan.setText("");
+            cb_rango.setSelectedIndex(0);
+        }
+        else
+            JOptionPane.showMessageDialog(jd_menu, "Para crear o unirse a un clan primero debes salir del actual");
     }//GEN-LAST:event_jb_crearMouseClicked
+
+    private void jb_unirseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_unirseMouseClicked
+
+    }//GEN-LAST:event_jb_unirseMouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        if(actual.getClan()==null){
+            jd_unirclan.setVisible(true);
+            jd_unirclan.pack();
+            jd_unirclan.setModal(true);
+            
+            DefaultListModel modelo=(DefaultListModel)jl_clanes.getModel();
+            for (Clan c : clanes) {
+                modelo.addElement(c);
+            }
+            
+            jl_clanes.setModel(modelo);
+            
+        }
+        else
+            JOptionPane.showMessageDialog(jd_menu, "Para crear o unirse a un clan primero debes salir del actual");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        actual.setClan(null);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -752,6 +852,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -763,20 +864,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jb_agrmazo;
     private javax.swing.JButton jb_agrregistro;
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_registro;
+    private javax.swing.JButton jb_unirse;
     private javax.swing.JDialog jd_agregarcartas;
     private javax.swing.JDialog jd_crearclan;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_registro;
+    private javax.swing.JDialog jd_unirclan;
+    private javax.swing.JList<String> jl_clanes;
     private javax.swing.JList<String> jl_miembros;
     private javax.swing.JTree jt_mazos;
     private javax.swing.JPasswordField pf_agrpassword;
