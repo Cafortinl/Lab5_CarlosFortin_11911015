@@ -57,7 +57,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -74,6 +73,13 @@ public class Principal extends javax.swing.JFrame {
         tf_ptsvida = new javax.swing.JTextField();
         tf_ptsdaño = new javax.swing.JTextField();
         jb_agrmazo = new javax.swing.JButton();
+        jd_crearclan = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        tf_nombreclan = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        cb_rango = new javax.swing.JComboBox<>();
+        jb_crear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -198,11 +204,6 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel14.setText("Tu clan");
 
-        jl_miembros.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(jl_miembros);
 
         jMenu1.setText("Mazos");
@@ -215,14 +216,16 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Modificar");
-        jMenu1.add(jMenuItem2);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Clan");
 
         jMenuItem3.setText("Crear clan");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Unirse a un clan");
@@ -352,6 +355,62 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(cb_tipocarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(118, Short.MAX_VALUE))
+        );
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel21.setText("Crear Clan");
+
+        jLabel22.setText("Nombre");
+
+        jLabel23.setText("Rango");
+
+        cb_rango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bronce", "Plata", "Oro", "Legendario" }));
+
+        jb_crear.setText("Crear");
+        jb_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearclanLayout = new javax.swing.GroupLayout(jd_crearclan.getContentPane());
+        jd_crearclan.getContentPane().setLayout(jd_crearclanLayout);
+        jd_crearclanLayout.setHorizontalGroup(
+            jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearclanLayout.createSequentialGroup()
+                .addGroup(jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearclanLayout.createSequentialGroup()
+                        .addGap(351, 351, 351)
+                        .addComponent(jLabel21))
+                    .addGroup(jd_crearclanLayout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel22)
+                        .addGap(26, 26, 26)
+                        .addGroup(jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_crearclanLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_rango, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_nombreclan, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+        jd_crearclanLayout.setVerticalGroup(
+            jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearclanLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel21)
+                .addGap(60, 60, 60)
+                .addGroup(jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(tf_nombreclan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jd_crearclanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(cb_rango, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85)
+                .addComponent(jb_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -525,24 +584,13 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
                 
-                DefaultMutableTreeNode c=new DefaultMutableTreeNode(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1));
+                Carta c=actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1);
                 
                 
-                int centinela=-1;
-                for(int j=0;j<root.getChildAt(0).getChildCount();j++){
-                    if(root.getChildAt(0).getChildAt(j).toString().equals(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).getRango())){
-                        ((DefaultMutableTreeNode)root.getChildAt(0).getChildAt(j)).add(c);
-                        centinela=1;
-                    }
-                }
-                
-                if(centinela==-1){
-                    DefaultMutableTreeNode n=new DefaultMutableTreeNode(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).getRango());
-                    ((DefaultMutableTreeNode)root.getChildAt(0)).add(n);
-                    root.add((DefaultMutableTreeNode)root.getChildAt(0));
-                    
-                }
-                
+                DefaultMutableTreeNode rango=new DefaultMutableTreeNode(c.getRango());
+                DefaultMutableTreeNode carta=new DefaultMutableTreeNode(rango);
+                ((DefaultMutableTreeNode)root.getChildAt(0)).add(rango);
+                rango.add(carta);
                 modelo.reload();
                 
             }
@@ -571,6 +619,15 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
                 actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
                 actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
+                
+                Carta c=actual.getMazo2().getCartas().get(actual.getMazo2().getCartas().size()-1);
+                
+                
+                DefaultMutableTreeNode rango=new DefaultMutableTreeNode(c.getRango());
+                DefaultMutableTreeNode carta=new DefaultMutableTreeNode(rango);
+                ((DefaultMutableTreeNode)root.getChildAt(1)).add(rango);
+                rango.add(carta);
+                modelo.reload();
             }
             else
                 JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
@@ -597,6 +654,15 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
                 actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
                 actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
+                
+                Carta c=actual.getMazo3().getCartas().get(actual.getMazo3().getCartas().size()-1);
+                
+                
+                DefaultMutableTreeNode rango=new DefaultMutableTreeNode(c.getRango());
+                DefaultMutableTreeNode carta=new DefaultMutableTreeNode(rango);
+                ((DefaultMutableTreeNode)root.getChildAt(2)).add(rango);
+                rango.add(carta);
+                modelo.reload();
             }
             else
                 JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
@@ -618,6 +684,17 @@ public class Principal extends javax.swing.JFrame {
         jd_agregarcartas.pack();
         jd_agregarcartas.setModal(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        jd_crearclan.setVisible(true);
+        jd_crearclan.pack();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
+        clanes.add(new Clan(tf_nombreclan.getText(), new Date(), actual,cb_rango.getSelectedItem().toString()));
+        tf_nombreclan.setText("");
+        cb_rango.setSelectedIndex(0);
+    }//GEN-LAST:event_jb_crearMouseClicked
 
     /**
      * @param args the command line arguments
@@ -656,6 +733,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_mazo;
+    private javax.swing.JComboBox<String> cb_rango;
     private javax.swing.JComboBox<String> cb_tipocarta;
     private com.toedter.calendar.JDateChooser dc_nacimiento;
     private javax.swing.JLabel jLabel1;
@@ -671,6 +749,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -682,7 +763,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -690,9 +770,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_agrmazo;
     private javax.swing.JButton jb_agrregistro;
     private javax.swing.JButton jb_color;
+    private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_registro;
     private javax.swing.JDialog jd_agregarcartas;
+    private javax.swing.JDialog jd_crearclan;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_registro;
     private javax.swing.JList<String> jl_miembros;
@@ -703,6 +785,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_agrnombre;
     private javax.swing.JTextField tf_agrusuario;
     private javax.swing.JTextField tf_nombrecarta;
+    private javax.swing.JTextField tf_nombreclan;
     private javax.swing.JTextField tf_ptsdaño;
     private javax.swing.JTextField tf_ptsvida;
     private javax.swing.JTextField tf_usuario;
