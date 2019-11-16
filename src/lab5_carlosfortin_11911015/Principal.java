@@ -89,6 +89,7 @@ public class Principal extends javax.swing.JFrame {
         jl_clanes = new javax.swing.JList<>();
         jb_unirse = new javax.swing.JButton();
         popup_info = new javax.swing.JPopupMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -498,6 +499,9 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
+        jMenuItem5.setText("Info");
+        popup_info.add(jMenuItem5);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
 
@@ -839,7 +843,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void jt_mazosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mazosMouseClicked
         if(evt.isMetaDown()){
-            
+            int row=jt_mazos.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_mazos.setSelectionRow(row);
+            Object v1=jt_mazos.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado=(DefaultMutableTreeNode)v1;
+            if(nodo_seleccionado.getUserObject() instanceof Carta)
+                popup_info.show(evt.getComponent(), evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jt_mazosMouseClicked
 
@@ -923,6 +932,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -957,4 +967,5 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Usuario> usuarios=new ArrayList();
     Usuario actual;
     ArrayList<Clan> clanes=new ArrayList();
+    DefaultMutableTreeNode nodo_seleccionado;
 }
