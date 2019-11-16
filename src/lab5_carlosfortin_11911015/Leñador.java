@@ -15,7 +15,7 @@ public class Leñador extends Carta{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Leñador"+": "+super.toString();
     }
     
 }

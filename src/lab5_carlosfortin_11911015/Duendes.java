@@ -15,7 +15,7 @@ public class Duendes extends Carta{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Duendes"+": "+super.toString();
     }
     
     

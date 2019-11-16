@@ -15,7 +15,7 @@ public class Gigante extends Carta{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Gigante"+": "+super.toString();
     }
     
     

@@ -16,7 +16,7 @@ public class Minipekka extends Carta{
     
     @Override
     public String toString(){
-        return super.toString();
+        return "Minipekka"+": "+super.toString();
     }
     
 }

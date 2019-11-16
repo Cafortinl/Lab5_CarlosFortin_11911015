@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -184,6 +186,14 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel13.setText("Tus mazos");
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Mazos");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 3");
+        treeNode1.add(treeNode2);
+        jt_mazos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jt_mazos);
 
         jLabel14.setText("Tu clan");
@@ -480,7 +490,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_ingresarMouseClicked
 
     private void jb_agrmazoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agrmazoMouseClicked
-        System.out.println(actual);
+        
+        DefaultTreeModel modelo=(DefaultTreeModel)jt_mazos.getModel();
+        DefaultMutableTreeNode root=(DefaultMutableTreeNode)modelo.getRoot();
+        
         if(cb_mazo.getSelectedItem().toString().equals("Mazo 1")){
             if(actual.getMazo1().getCartas().size()<3){
                 if(cb_tipocarta.getSelectedItem().toString().equals("Minipekka"))
@@ -511,6 +524,27 @@ public class Principal extends javax.swing.JFrame {
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setNombre(tf_nombrecarta.getText());
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setPts_vida(Integer.parseInt(tf_ptsvida.getText()));
                 actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).setDaño(Integer.parseInt(tf_ptsdaño.getText()));
+                
+                DefaultMutableTreeNode c=new DefaultMutableTreeNode(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1));
+                
+                
+                int centinela=-1;
+                for(int j=0;j<root.getChildAt(0).getChildCount();j++){
+                    if(root.getChildAt(0).getChildAt(j).toString().equals(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).getRango())){
+                        ((DefaultMutableTreeNode)root.getChildAt(0).getChildAt(j)).add(c);
+                        centinela=1;
+                    }
+                }
+                
+                if(centinela==-1){
+                    DefaultMutableTreeNode n=new DefaultMutableTreeNode(actual.getMazo1().getCartas().get(actual.getMazo1().getCartas().size()-1).getRango());
+                    ((DefaultMutableTreeNode)root.getChildAt(0)).add(n);
+                    root.add((DefaultMutableTreeNode)root.getChildAt(0));
+                    
+                }
+                
+                modelo.reload();
+                
             }
             else
                 JOptionPane.showMessageDialog(jd_agregarcartas, "El mazo no puede tener mas de 3 cartas");
@@ -574,6 +608,9 @@ public class Principal extends javax.swing.JFrame {
         tf_ptsdaño.setText("");
         cb_mazo.setSelectedIndex(0);
         cb_tipocarta.setSelectedIndex(0);
+        
+        
+        
     }//GEN-LAST:event_jb_agrmazoMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

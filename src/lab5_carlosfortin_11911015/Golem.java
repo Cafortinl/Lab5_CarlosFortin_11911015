@@ -15,7 +15,7 @@ public class Golem extends Carta{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Golem"+": "+super.toString();
     }
     
     

@@ -15,7 +15,7 @@ public class Dragon extends Carta{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Dragon"+": "+super.toString();
     }
     
     
