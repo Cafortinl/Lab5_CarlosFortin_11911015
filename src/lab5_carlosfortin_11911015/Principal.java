@@ -211,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel14.setText("Tu clan");
 
+        jl_miembros.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jl_miembros);
 
         jMenu1.setText("Mazos");
@@ -763,15 +764,35 @@ public class Principal extends javax.swing.JFrame {
         if(actual.getClan()==null){
             clanes.add(new Clan(tf_nombreclan.getText(), new Date(), actual,cb_rango.getSelectedItem().toString()));
             actual.setClan(clanes.get(clanes.size()-1));
+            clanes.get(clanes.size()-1).setUsuario(actual);
             tf_nombreclan.setText("");
             cb_rango.setSelectedIndex(0);
+            
+            DefaultListModel m2=(DefaultListModel)jl_miembros.getModel();
+            for (Usuario u : actual.getClan().getMiembros()) {
+                m2.addElement(u);
+            }
+            jl_miembros.setModel(m2);
         }
         else
             JOptionPane.showMessageDialog(jd_menu, "Para crear o unirse a un clan primero debes salir del actual");
     }//GEN-LAST:event_jb_crearMouseClicked
 
     private void jb_unirseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_unirseMouseClicked
-
+        DefaultListModel modelo=(DefaultListModel)jl_clanes.getModel();
+        DefaultListModel m2=(DefaultListModel)jl_miembros.getModel();
+        if(jl_clanes.getSelectedIndex()>=0){
+            for (Clan c : clanes) {
+                if(c.toString().equals(jl_clanes.getSelectedIndex()))
+                    actual.setClan(c);
+            }
+        }
+        
+        for (Usuario u : actual.getClan().getMiembros()) {
+            m2.addElement(u);
+        }
+        jl_miembros.setModel(m2);
+        
     }//GEN-LAST:event_jb_unirseMouseClicked
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed

@@ -72,6 +72,7 @@ public class Clan {
     public void setUsuario(Usuario usuario){
         this.miembros.add(usuario);
     }
+    
 
     @Override
     public String toString() {
